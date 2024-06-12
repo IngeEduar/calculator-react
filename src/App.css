@@ -181,10 +181,11 @@ button:hover {
 }
 
 .scrollable {
-  height: 100px; /* Altura máxima de la columna */
-  overflow-y: auto; /* Agrega scroll vertical si es necesario */
+  height: 80px;
+  width: 100px;
+  overflow-y: auto;
 }
 
 .scroll-content {
-  padding-right: 20px; /* Asegura que el contenido no sea cubierto por el scroll */
+  padding-right: 20px;
 }

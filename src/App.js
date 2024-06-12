@@ -171,6 +171,14 @@ function App() {
                       ))}
                     </div>
                   </div>
+                  <div className="scrollable">
+                    <h3>Error</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_taylor.errors.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="column">
                   <h2>Método Euler</h2>
@@ -190,6 +198,14 @@ function App() {
                       ))}
                     </div>
                   </div>
+                  <div className="scrollable">
+                    <h3>Error</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_euler.errors.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="column">
                   <h2>Método Runge</h2>
@@ -205,6 +221,14 @@ function App() {
                     <h3>Y</h3>
                     <div className="scroll-content">
                       {selectedHistoryItem.result.metodo_runge.y.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="scrollable">
+                    <h3>Error</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_runge.errors.map((value, index) => (
                         <div key={index}>{value}</div>
                       ))}
                     </div>
