@@ -53,8 +53,11 @@ function App() {
       const newHistoryItem = {
         expr: expression,
         result: calculatedResult,
+        message: data.message ? data.message : null,
         time: new Date().toLocaleString(),
       };
+
+      console.log(newHistoryItem)
 
       const newHistory = [newHistoryItem, ...history];
       setHistory(newHistory);
@@ -147,65 +150,71 @@ function App() {
           <div className="modal-content">
             <h2>Expresión</h2>
             <div>{selectedHistoryItem.expr}</div>
-            <div className="columns-container">
-              <div className="column">
-                <h2>Método Taylor</h2>
-                <div className="scrollable">
-                  <h3>X</h3>
-                  <div className="scroll-content">
-                    {selectedHistoryItem.result.metodo_taylor.x.slice(0, 3).map((value, index) => (
-                      <div key={index}>{value}</div>
-                    ))}
+            {
+              !selectedHistoryItem.message ? (
+              <div className="columns-container">
+                <div className="column">
+                  <h2>Método Taylor</h2>
+                  <div className="scrollable">
+                    <h3>X</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_taylor.x.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="scrollable">
+                    <h3>Y</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_taylor.y.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="scrollable">
-                  <h3>Y</h3>
-                  <div className="scroll-content">
-                    {selectedHistoryItem.result.metodo_taylor.y.slice(0, 3).map((value, index) => (
-                      <div key={index}>{value}</div>
-                    ))}
+                <div className="column">
+                  <h2>Método Euler</h2>
+                  <div className="scrollable">
+                    <h3>X</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_euler.x.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="scrollable">
+                    <h3>Y</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_euler.y.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="column">
+                  <h2>Método Runge</h2>
+                  <div className="scrollable">
+                    <h3>X</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_runge.x.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="scrollable">
+                    <h3>Y</h3>
+                    <div className="scroll-content">
+                      {selectedHistoryItem.result.metodo_runge.y.map((value, index) => (
+                        <div key={index}>{value}</div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="column">
-                <h2>Método Euler</h2>
-                <div className="scrollable">
-                  <h3>X</h3>
-                  <div className="scroll-content">
-                    {selectedHistoryItem.result.metodo_euler.x.slice(0, 3).map((value, index) => (
-                      <div key={index}>{value}</div>
-                    ))}
-                  </div>
-                </div>
-                <div className="scrollable">
-                  <h3>Y</h3>
-                  <div className="scroll-content">
-                    {selectedHistoryItem.result.metodo_euler.y.slice(0, 3).map((value, index) => (
-                      <div key={index}>{value}</div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="column">
-                <h2>Método Runge</h2>
-                <div className="scrollable">
-                  <h3>X</h3>
-                  <div className="scroll-content">
-                    {selectedHistoryItem.result.metodo_runge.x.slice(0, 3).map((value, index) => (
-                      <div key={index}>{value}</div>
-                    ))}
-                  </div>
-                </div>
-                <div className="scrollable">
-                  <h3>Y</h3>
-                  <div className="scroll-content">
-                    {selectedHistoryItem.result.metodo_runge.y.slice(0, 3).map((value, index) => (
-                      <div key={index}>{value}</div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+              ) : (
+                <div>{selectedHistoryItem.message}</div>
+              )
+            }
             <h2>Hora</h2>
             <div>{selectedHistoryItem.time}</div>
             <button className="orange" onClick={closeModal}>Cerrar</button>
