@@ -58,7 +58,6 @@ button {
   border-radius: 5px;
 }
 
-/* Asegúrate de que el botón 'total' ocupe toda la fila */
 button.total {
   grid-column: span 4;
 }

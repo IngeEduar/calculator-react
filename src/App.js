@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './App.css';
 
-const API_URL = 'https://eduar.free.beeceptor.com'; // Reemplaza con la URL real de tu API
+const API_URL = 'http://localhost:5000/analize_equation';
 
-Modal.setAppElement('#root'); // Necesario para accesibilidad
+Modal.setAppElement('#root');
 
 function App() {
   const [expression, setExpression] = useState('');
